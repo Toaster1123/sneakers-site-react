@@ -6,6 +6,7 @@ import Card from './components/Card';
 function App() {
   const [items, setItems] = react.useState([]);
   const [cartItems, setcartItems] = react.useState([]);
+  const [searchValue, setSearchValue] = react.useState('');
   const [cartOpened, setCartOpened] = react.useState(false);
 
   react.useEffect(() => {
@@ -39,8 +40,9 @@ function App() {
           </div>
         </div>
         <div className="snaekers">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <Card
+              key={index}
               title={item.title}
               price={item.price}
               imageUrl={item.imageUrl}
